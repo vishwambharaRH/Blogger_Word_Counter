@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Blogger Word Counter",
+  "version": "1.0",
+  "description": "Counts words in the Blogger post editor.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://www.blogger.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.blogger.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
